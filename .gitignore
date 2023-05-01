@@ -19,3 +19,5 @@
 *.class
 *.log
 !application.properties
+.DS_Store
+*.log.*

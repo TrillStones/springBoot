@@ -4,7 +4,7 @@ import java.util.Date;
 
 
 public class User {
-    private Integer id;
+    private Long id;
     private String name;
     private String address;
     private String mobile;
@@ -12,12 +12,12 @@ public class User {
     private Date createTime;
     private Integer role;
 
-    public Integer getId() {
-        return id;
-    }
+   
 
-    public void setId(Integer id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", name=" + name + ", address=" + address + ", mobile=" + mobile + ", email=" + email
+                + ", createTime=" + createTime + ", role=" + role + "]";
     }
 
     public String getName() {
@@ -67,4 +67,16 @@ public class User {
     public void setRole(Integer role) {
         this.role = role;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+   
+
+  
 }

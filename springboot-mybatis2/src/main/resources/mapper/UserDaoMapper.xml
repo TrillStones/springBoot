@@ -41,16 +41,14 @@
 		<include refid="queryCondition" />
     </select>
     
-    <select id="getById" parameterType="int" resultMap="userMap">
+    <select id="getById" parameterType="long" resultMap="userMap">
     	SELECT * FROM user WHERE id =#{id}
     </select>
     
-    <insert id="create" parameterType="cn.abel.bean.User">
-        <selectKey resultType="int"  order="AFTER" keyProperty="id" >
-			SELECT LAST_INSERT_ID()
-		</selectKey>
+    <insert id="create" parameterType="cn.abel.bean.User" useGeneratedKeys="true" keyColumn="id">
+       
 		INSERT INTO user(
-			id,
+		
 			name,
 			address,
 			mobile,
@@ -58,7 +56,7 @@
 			create_time,
 			role
 		)VALUES(
-			#{id},
+			
 			#{name},
 			#{address},
 			#{mobile},
@@ -78,8 +76,13 @@
 		WHERE id = #{id}
     </update>
     
-    <delete id="delete" parameterType="int">
+    <delete id="delete" parameterType="long">
     	DELETE FROM user WHERE id = #{id}
     </delete>
+
+<!-- 根据角色计算用户总数 -->
+	<select id="countByRole" parameterType="int" resultType="int">
+		SELECT COUNT(*) FROM user WHERE role = #{role}
+	</select>
     
 </mapper>

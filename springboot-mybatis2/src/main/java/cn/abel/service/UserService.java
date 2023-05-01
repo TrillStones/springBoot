@@ -18,7 +18,7 @@ public class UserService {
 		return userDao.getByMap(map);
 	}
 	
-	public User getById(Integer id){
+	public User getById(Long id){
 		return userDao.getById(id);
 	}
 	
@@ -32,8 +32,12 @@ public class UserService {
 		return user;
 	}
 	
-	public int delete(Integer id){
+	public int delete(Long id){
 		return userDao.delete(id);
+	}
+
+	public Object countByRole(Integer role) {
+		return userDao.countByRole(role);
 	}
     
 }

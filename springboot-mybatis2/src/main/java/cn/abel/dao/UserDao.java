@@ -13,11 +13,13 @@ public interface UserDao {
 
     List<User> getByMap(Map<String, Object> map);
 
-    User getById(Integer id);
+    User getById(Long id);
 
     Integer create(User user);
 
     int update(User user);
 
-    int delete(Integer id);
+    int delete(Long id);
+
+    Object countByRole(Integer role);
 }
